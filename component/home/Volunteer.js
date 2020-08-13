@@ -5,6 +5,7 @@ import Social from './Social';
 import Pet from './Pet';
 import Handy from './Handy';
 import Transport from './Transport';
+import { color } from 'react-native-reanimated';
 
 
 
@@ -49,6 +50,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     backgroundColor: 'white',
+    
   },
   social:{
     marginHorizontal: '3%',
