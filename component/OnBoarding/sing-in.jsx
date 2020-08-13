@@ -3,7 +3,7 @@ import { View, StyleSheet, Image, Text, TouchableOpacity } from 'react-native';
 
 const SignIn = props => {
   return(
-      <View>
+      <View style={styles.Signin}>
         <Text>
           Let’s get you started!
         </Text>
@@ -11,5 +11,12 @@ const SignIn = props => {
   )
 };
 
+const styles = StyleSheet.create({
+  Signin: {
+    flex: 1,
+    justifyContent: 'space-evenly',
+
+  }
+});
 
 export default SignIn;

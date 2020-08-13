@@ -3,7 +3,8 @@ import { StyleSheet, View, } from 'react-native';
 import * as Font from 'expo-font';
 import { AppLoading } from 'expo';
 
-import Screen from './navigation/Screen';
+// import Screen from './navigation/Screen';
+import SignIn from './component/OnBoarding/sing-in';
 
 
 const fetchFonts = () => {
@@ -29,11 +30,8 @@ export default function App() {
 
 
   
-  return <Screen />
+  // return <Screen />
+  return <SignIn />
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});
+
