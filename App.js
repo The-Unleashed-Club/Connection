@@ -24,7 +24,7 @@ export default function App() {
   }
 
 
-
+  // test1
   // test
   // return <Socio/>
   return <HomeScreen />
