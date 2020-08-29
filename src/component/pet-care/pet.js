@@ -1,7 +1,8 @@
 import React from "react";
-import { StyleSheet, View, Text, Image } from "react-native";
-
+import { StyleSheet, View, Text, Image,TouchableOpacity } from "react-native";
 import { useNavigation } from '@react-navigation/native';
+
+import Picker from './picker'
 import Dark_Button from "../../Items/Buttons/dark-bt";
 import Colors from "../../Items/Colors";
 
@@ -9,14 +10,21 @@ const Pet_Screen = props => {
   const navigation = useNavigation();
 
   return (
-    <View style={styles.screen}>{props.onPress}
+    <View style={{ ...styles.screen, ...props.style}}>
+      <View style={styles.top} >
+        <TouchableOpacity  onPress={() => {navigation.goBack()}} >
+          <Text style={styles.back}>Back</Text>
+        </TouchableOpacity>
+      </View>
+
+
       <View style={styles.container1}>
-        <Text style={styles.head}> Pet Care</Text>
+        <Text style={styles.head}>Pet Care</Text>
       </View>
       <View style={styles.container2}>
         <Image
           source={require("../h2h/s6.png")}
-          resizeMode='cover'
+          resizeMode='contain'
           style={{
             width: '65%',
             height: '100%',
@@ -42,9 +50,8 @@ const Pet_Screen = props => {
         <Text style={styles.head3}>Select type of Pet Care</Text>
       </View>
       <View style={styles.container5}>
-        <Text style={{ alignSelf: "center" }}>Pet sitting</Text>
-        <Text style={{ alignSelf: "center" }}>Dog walking</Text>
-        <Text style={{ alignSelf: "center" }}>Other</Text>
+        <Picker />
+        
       </View>
       <View style={styles.container6}>
         <Dark_Button onPress={() => props.navigation.navigate('PetScreen2')} >
@@ -62,6 +69,14 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     margin: "1.8%",
+  },
+  top: {
+    flex:0.85,
+    width: '100%',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignSelf: 'flex-start',
+    // backgroundColor: "#A596D3",
   },
   container1: {
     flex: 0.5,
@@ -107,6 +122,11 @@ const styles = StyleSheet.create({
     paddingBottom: '5%',
     // backgroundColor: '#9811C9',
     
+  },
+  back:{
+    alignSelf: "flex-start",
+    fontSize: 16,
+    color: Colors.primary3,
   },
   head: {
     fontSize: 26,
