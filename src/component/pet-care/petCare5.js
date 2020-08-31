@@ -4,6 +4,7 @@ import { useNavigation } from "@react-navigation/native";
 
 import Dark_Button from "../../Items/Buttons/dark-bt";
 import Colors from "../../Items/Colors";
+import PetTypePicker from "./PetTypePicker";
 
 const Pet_screen5 = (props) => {
   const navigation = useNavigation();
@@ -39,9 +40,11 @@ const Pet_screen5 = (props) => {
         />
       </View>
       <View style={styles.container4}>
-        <Text style={styles.head2}>5 What is your requested date?</Text>
+        <Text style={styles.head2}>What type of pet is it?</Text>
       </View>
-      <View style={styles.container5}></View>
+      <View style={styles.container5}>
+        <PetTypePicker></PetTypePicker>
+      </View>
       <View style={styles.container6}>
         <Dark_Button onPress={() => props.navigation.navigate("PetScreen6")}>
           <Text> Next</Text>
@@ -62,41 +65,44 @@ const styles = StyleSheet.create({
   container1: {
     flex: 0.6,
     width: "100%",
-    //backgroundColor: "#C6C438",
+    // backgroundColor: "#C6C438",
   },
   container2: {
     flex: 0.6,
     width: "100%",
-    //backgroundColor: "#A596D3",
+    // backgroundColor: "#A596D3",
   },
   container3: {
     flex: 1.8,
     flexDirection: "column",
     width: "100%",
     paddingHorizontal: "2%",
-    //backgroundColor: "#C6C438",
+    // backgroundColor: "#C6C438",
   },
   container4: {
-    flex: 0.8,
+    flex: 1.2,
     width: "100%",
     flexDirection: "column",
     justifyContent: "center",
-    //backgroundColor: "#267DA5",
+    // backgroundColor: "#267DA5",
   },
   container5: {
-    flex: 4.8,
+    flex: 3,
     width: "100%",
     flexDirection: "column",
     justifyContent: "center",
     alignSelf: "center",
-    //backgroundColor: "#86EC4F",
+    // backgroundColor: "#86EC4F",
   },
   container6: {
     flex: 1.6,
     width: "100%",
-    //backgroundColor: "#9811C9",
+    // backgroundColor: "#9811C9",
     paddingHorizontal: "2%",
     paddingTop: "5%",
+    justifyContent: "center",
+
+    paddingLeft: "60%",
   },
   head: {
     fontSize: 26,

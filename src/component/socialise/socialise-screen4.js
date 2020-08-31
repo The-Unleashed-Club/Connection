@@ -1,32 +1,29 @@
 import React from 'react';
-import { StyleSheet, View, Text, Image, TouchableOpacity, SafeAreaView } from 'react-native';
+import { StyleSheet, View, Text, Image, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { Feather } from '@expo/vector-icons';
-
-import CalenderComponent from './CalenderComponent';
 import Dark_Button from '../../Items/Buttons/dark-bt';
 import Colors from '../../Items/Colors';
 
-
-const HandyWork_Screen2 = props => {
-
+const Social_Screen4 = props => {
   const navigation = useNavigation();
-
-
-  return(
-    <SafeAreaView style={{ ...styles.screen, ...props.style}}>
+    return (
+      <View style={{ ...styles.screen, ...props.style}}>
 
       <View style={styles.top} >
         <TouchableOpacity  onPress={() => {navigation.goBack()}} >
-          <Text style={styles.back}><Feather name="chevron-left" size={15} color= {Colors.primary3} />Back</Text>
+          <Text style={styles.back}>
+            {/* <Feather name="chevron-left" size={15} color= {Colors.primary3} /> */}
+            Back</Text>
         </TouchableOpacity>
       </View>
 
-      <View style={styles.container1}>
-        <Text style={styles.head}>Handywork</Text>
+
+
+        <View style={styles.container1}>
+        <Text style={styles.head1}>Socialise</Text>
       </View>
       <View style={styles.container2}>
-        <Text style={styles.head2}>Handyman Service</Text>
+        <Text style={styles.head2}>Coffee meetup</Text>
       </View>
 
       <View style={styles.container3}>
@@ -37,37 +34,34 @@ const HandyWork_Screen2 = props => {
             width: "27%",
             alignSelf: "center",
           }}
-          // change the source of the image
+
           source={require('../../Items/Icons/calender.jpeg')}
         />
       </View>
       <View style={styles.container4}>
-        <Text style={styles.head2}></Text>
-        <Text style={styles.head2}> What is your requested date?</Text>
-        <Text style={styles.head2}></Text>
-       
+        <Text style={styles.head3}> {'Friday'}, {'June 5'} , {'2020'}</Text>
+        <Text style={styles.head3}></Text>
+        <Text style={styles.head3}> What time do you request?</Text>
       </View>
-      <View style={styles.container5}>
-          <CalenderComponent />
-      </View>
+      <View style={styles.container5}></View>
       <View style={styles.container6}>
-        <Dark_Button onPress={() => props.navigation.navigate('handyWorkScreen3')} >
-          <Text style={{fontSize: 18}}> Next</Text>
+        <Dark_Button onPress={() => props.navigation.navigate('socialscreen6')} >
+          <Text> Next</Text>
         </Dark_Button>
       </View>
-    </SafeAreaView>
+    </View>
+
+
   );
 };
-
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
-    padding: '1.8%',
-    marginTop: '7%',
-    backgroundColor: '#ffffff'
+    margin: "1.8%",
+    marginTop: '7%'
   },
   top: {
     flex:0.85,
@@ -75,69 +69,75 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'center',
     alignSelf: 'flex-start',
-    // backgroundColor: "#A596D3",
+    // backgroundColor: "#05ffea",
   },
   container1: {
     flex: 0.6,
     width: "100%",
+    flexDirection: 'column',
+    justifyContent: 'center',
     // backgroundColor: "#C6C438",
   },
   container2: {
-    flex: 0.5,
+    flex: 0.6,
     width: "100%",
-    // backgroundColor: "#A596D3",
+    flexDirection: 'column',
+    // backgroundColor: "#ed0905",
   },
   container3: {
     flex: 1.8,
     flexDirection: "column",
     width: "100%",
     paddingHorizontal: "2%",
-    // backgroundColor: "#C6C438",
+    paddingBottom: '1%',
+    // backgroundColor: "#9a83eb",
+
   },
   container4: {
-    flex: 0.8,
+    flex: 1.1,
     width: "100%",
     flexDirection: "column",
     justifyContent: "center",
-    // backgroundColor: "#267DA5",
+    paddingTop: '3%',
+    // backgroundColor: "#c754c5",
   },
   container5: {
-    flex: 6,
+    flex: 4.8,
     width: "100%",
     flexDirection: "column",
     justifyContent: "center",
     alignSelf: "center",
-    // backgroundColor: "#86EC4F",
+    // backgroundColor: "#a8744c",
   },
   container6: {
-    flex: 1.1,
-    flexDirection: 'column',
-    justifyContent: 'center',
+    flex: 1.2,
     width: "100%",
-    paddingLeft: '58%',
-    paddingHorizontal: "2%",
+    flexDirection: 'column',
     // backgroundColor: "#9811C9",
+
+
   },
   back:{
     alignSelf: "flex-start",
     fontSize: 16,
     color: Colors.primary2,
   },
-  head: {
+  head1: {
     fontSize: 26,
     fontWeight: "bold",
     color: Colors.primary1,
   },
   head2: {
     alignSelf: "flex-start",
-    fontSize: 19,
+    fontSize: 16,
     color: Colors.primary2,
   },
   head3: {
     fontSize: 17.5,
-    alignSelf: "center",
+    alignSelf: 'flex-start',
     fontWeight: "bold",
+    justifyContent: 'center'
   },
 });
 
-export default HandyWork_Screen2
+export default  Social_Screen4;

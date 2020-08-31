@@ -99,6 +99,7 @@ const styles = StyleSheet.create({
     //backgroundColor: "#9811C9",
     paddingHorizontal: "2%",
     paddingTop: "5%",
+    paddingLeft: "60%",
   },
   head: {
     fontSize: 26,

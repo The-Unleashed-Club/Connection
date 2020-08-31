@@ -1,7 +1,9 @@
 import React from 'react';
 import { StyleSheet, View, Text, Image, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import Dark_Button2 from '../../Items/Buttons/dark-bt2';
+import { Feather } from '@expo/vector-icons';
+
+import Dark_Button from '../../Items/Buttons/dark-bt';
 import Colors from '../../Items/Colors';
 import Picker from './picker';
 
@@ -11,8 +13,13 @@ const HandyWork_Screen = props => {
     return(
       <View style={{ ...styles.screen, ...props.style}}>
       <View style={styles.top} >
+      
         <TouchableOpacity  onPress={() => {navigation.goBack()}} >
-          <Text style={styles.back}> {'<'} Back</Text>
+          <Text style={styles.back}>
+            {/* Icons */}
+            <Feather name="chevron-left" size={15} color= {Colors.primary3} />
+                Back
+            </Text>
         </TouchableOpacity>
       </View>
 
@@ -45,11 +52,11 @@ const HandyWork_Screen = props => {
       </View>
 
       <View style={styles.container6}>
-       <Dark_Button2 onPress={() => props.navigation.navigate('handyWorkScreen2')} >
+       <Dark_Button onPress={() => props.navigation.navigate('handyWorkScreen2')} >
          <Text style={{fontWeight: 'bold'}}>
           Request For HandyWork
          </Text>
-       </Dark_Button2>
+       </Dark_Button>
       </View>
      
         

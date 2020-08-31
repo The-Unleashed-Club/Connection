@@ -50,7 +50,7 @@ const sizeText = {
 const Item = React.memo(({opacity, selected, vertical, fontSize, name}) => {
   return (
     <View
-      style={[styles.OptionWrapper, { opacity, borderColor: selected ? '#64666D' : 'transparent', width: vertical ? 180 : 'auto'}]}
+      style={[styles.OptionWrapper, { opacity, borderColor: selected ? '#64666D' : 'transparent', width: vertical ? 220 : 'auto'}]}
     >
     <Text style={{fontSize}}>
       {name}
@@ -137,12 +137,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginTop: 10,
     marginBottom: 10,
-    paddingTop: 10,
-    paddingBottom: 10,
-    width: '100%',
-    height: 45,
+    paddingVertical: 10,
+    height: 55,
     borderWidth: 3,
-    borderRadius: 12,
+    borderRadius: 20,
     // backgroundColor: '#218291',
   },
 });
