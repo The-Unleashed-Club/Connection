@@ -2,13 +2,14 @@ import React from "react";
 import { StyleSheet, View, Image, Text, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { RadioButton } from "react-native-paper";
+import { Feather } from "@expo/vector-icons";
 
 import Dark_Button from "../../Items/Buttons/dark-bt";
 import Colors from "../../Items/Colors";
 
 const Pet_screen4 = (props) => {
   const navigation = useNavigation();
-  const [value, setValue] = React.useState("Eaither is fine");
+  const [value, setValue] = React.useState("Either is fine");
 
   return (
     <View style={{ ...styles.screen, ...props.style }}>
@@ -18,7 +19,10 @@ const Pet_screen4 = (props) => {
             navigation.goBack();
           }}
         >
-          <Text style={styles.back}>Back</Text>
+          <Text style={styles.back}>
+            <Feather name="chevron-left" size={15} color={Colors.primary3} />
+            Back
+          </Text>
         </TouchableOpacity>
       </View>
       <View style={styles.container1}>
@@ -81,13 +85,20 @@ const Pet_screen4 = (props) => {
               alignItems: "center",
             }}
           >
-            <RadioButton color="#2D375B" value="Eaither is fine" />
-            <Text style={styles.head4}>Eaither is fine</Text>
+            <RadioButton color="#2D375B" value="Either is fine" />
+            <Text style={styles.head4}>Either is fine</Text>
           </View>
         </RadioButton.Group>
       </View>
       <View style={styles.container6}>
-        <Dark_Button onPress={() => props.navigation.navigate("PetScreen5")}>
+        <Dark_Button
+          onPress={() =>
+            props.navigation.navigate("PetScreen5", {
+              ...props.route.params,
+              location: value,
+            })
+          }
+        >
           <Text> Next</Text>
         </Dark_Button>
       </View>
@@ -101,7 +112,8 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
-    margin: "1.8%",
+    paddingTop: "7%",
+    padding: '1.8%',
   },
   container1: {
     flex: 0.6,
@@ -166,7 +178,7 @@ const styles = StyleSheet.create({
     color: Colors.primary2,
   },
   top: {
-    flex: 0.85,
+    flex: 0.6,
     width: "100%",
     flexDirection: "column",
     justifyContent: "center",

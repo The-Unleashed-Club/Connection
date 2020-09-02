@@ -78,6 +78,9 @@ const PetTypePicker = (props) => {
 
   const [selected, setSelected] = useState(0);
   const refPicker = useRef(null);
+  // this is added if user doesn't happen to select any value
+  props.petTypeGetter(dataCity[selected]);
+
   return (
     <View style={{ ...styles.container, ...props.style }}>
       {props.selected}
@@ -88,10 +91,13 @@ const PetTypePicker = (props) => {
           refFlatList={refPicker}
           onScrollToIndexFailed={() => {}}
           keyExtractor={(_, index) => index.toString()}
-          showsVerticalScrollIndicator={true}
+          showsVerticalScrollIndicator={false}
           data={dataCity}
           scrollAnimatio={false}
-          onSelected={({ item, index }) => handleChange(index)}
+          onSelected={({ item, index }) => {
+            handleChange(index);
+            props.petTypeGetter(item);
+          }}
           selectOnPress={true}
           renderItem={(option) => ItemToRender(option, selected, true)}
           magnet={true}

@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, View, Text, Image, TouchableOpacity, SafeAreaView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { Feather } from '@expo/vector-icons';
 
-import CalenderComponent from './CalenderComponent';
+import CalenderComponent from '../CalenderComponent';
 import Dark_Button from '../../Items/Buttons/dark-bt';
 import Colors from '../../Items/Colors';
 
@@ -11,6 +11,12 @@ import Colors from '../../Items/Colors';
 const HandyWork_Screen2 = props => {
 
   const navigation = useNavigation();
+  const [selectedDate, setDate] = useState("");
+  const changeDate = (day) => {
+    setDate(day);
+  };
+
+  console.log(props);
 
 
   return(
@@ -40,6 +46,7 @@ const HandyWork_Screen2 = props => {
           // change the source of the image
           source={require('../../Items/Icons/calender.jpeg')}
         />
+
       </View>
       <View style={styles.container4}>
         <Text style={styles.head2}></Text>
@@ -48,10 +55,13 @@ const HandyWork_Screen2 = props => {
        
       </View>
       <View style={styles.container5}>
-          <CalenderComponent />
+          <CalenderComponent getDate={changeDate} />
       </View>
       <View style={styles.container6}>
-        <Dark_Button onPress={() => props.navigation.navigate('handyWorkScreen3')} >
+        <Dark_Button onPress={() => props.navigation.navigate('handyWorkScreen3', {
+           ...props.route.params,
+           selectedDate
+        })} >
           <Text style={{fontSize: 18}}> Next</Text>
         </Dark_Button>
       </View>
@@ -66,7 +76,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     padding: '1.8%',
-    marginTop: '7%',
+    paddingTop: '7%',
     backgroundColor: '#ffffff'
   },
   top: {

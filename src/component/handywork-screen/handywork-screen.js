@@ -1,14 +1,19 @@
-import React from 'react';
+import React, { useState} from 'react';
 import { StyleSheet, View, Text, Image, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { Feather } from '@expo/vector-icons';
 
 import Dark_Button from '../../Items/Buttons/dark-bt';
 import Colors from '../../Items/Colors';
-import Picker from './picker';
+import Picker from './handy-picker';
 
 const HandyWork_Screen = props => {
+
   const navigation = useNavigation();
+  const [type, SetType] = useState();
+
+  const selectHandler = (item) => {SetType(item)};
+
 
     return(
       <View style={{ ...styles.screen, ...props.style}}>
@@ -16,7 +21,7 @@ const HandyWork_Screen = props => {
       
         <TouchableOpacity  onPress={() => {navigation.goBack()}} >
           <Text style={styles.back}>
-            {/* Icons */}
+            {/* Icon */}
             <Feather name="chevron-left" size={15} color= {Colors.primary3} />
                 Back
             </Text>
@@ -48,11 +53,15 @@ const HandyWork_Screen = props => {
       </View>
 
       <View style={styles.container5}>
-        <Picker />
+        <Picker selectType={selectHandler}/>
       </View>
 
       <View style={styles.container6}>
-       <Dark_Button onPress={() => props.navigation.navigate('handyWorkScreen2')} >
+       <Dark_Button
+        onPress={ () => props.navigation.navigate('handyWorkScreen2',{
+              ...props.route.params,
+              type,
+            })}>
          <Text style={{fontWeight: 'bold'}}>
           Request For HandyWork
          </Text>

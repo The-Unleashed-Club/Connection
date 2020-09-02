@@ -13,11 +13,10 @@ import { Feather } from "@expo/vector-icons";
 import Dark_Button from "../../Items/Buttons/dark-bt";
 import Colors from "../../Items/Colors";
 
-const Pet_screen6 = (props) => {
+const Pet_screen9 = (props) => {
   const navigation = useNavigation();
-
-  const [value, onChangeText] = useState();
-  const toTitleCase = (str) => str[0].toUpperCase() + str.slice(1);
+  const data = { ...props.route.params };
+  console.log(data);
 
   return (
     <View style={{ ...styles.screen, ...props.style }}>
@@ -34,45 +33,73 @@ const Pet_screen6 = (props) => {
         </TouchableOpacity>
       </View>
       <View style={styles.container1}>
-        <Text style={styles.head}> Pet Care </Text>
-      </View>
-      <View style={styles.container2}>
-        <Text style={styles.head2}> Sitting </Text>
+        <Text style={styles.head}> Review your request </Text>
       </View>
 
-      <View style={styles.container3}>
-        <Image
-          resizeMode="contain"
-          style={{
-            height: "100%",
-            width: "27%",
-            alignSelf: "center",
-          }}
-          // change the source of the image
-          source={require("../../Items/Icons/calender.jpeg")}
-        />
-      </View>
-      <View style={styles.container4}>
-        <Text style={styles.head2}>What is your pet's name?</Text>
-      </View>
-      <View style={styles.container5}>
+      <View style={styles.container2}>
+        <Text>Type of Pet Care</Text>
         <TextInput
           style={styles.input}
-          onChangeText={(text) => onChangeText(text)}
-          value={value}
-          placeholder={'Enter Text'}
-        />
+          editable={false}
+          value={data.CareType}
+        ></TextInput>
       </View>
+      <View style={styles.container2}>
+        <Text>Date</Text>
+        <TextInput
+          style={styles.input}
+          editable={false}
+          value={data.date}
+        ></TextInput>
+      </View>
+      <View style={styles.container2}>
+        <Text>Time</Text>
+        <TextInput style={styles.input} editable={false} value={""}></TextInput>
+      </View>
+      <View style={styles.container2}>
+        <Text>Location for pet sitting</Text>
+        <TextInput
+          style={styles.input}
+          editable={false}
+          value={data.location}
+        ></TextInput>
+      </View>
+      <View style={styles.container2}>
+        <Text>Type of pet</Text>
+        <TextInput
+          style={styles.input}
+          editable={false}
+          value={data.PetType}
+        ></TextInput>
+      </View>
+      <View style={styles.container2}>
+        <Text>Pet's name</Text>
+        <TextInput
+          style={styles.input}
+          editable={false}
+          value={data.petName}
+        ></TextInput>
+      </View>
+      <View style={styles.container2}>
+        <Text>Pet size</Text>
+        <TextInput
+          style={styles.input}
+          editable={false}
+          value={data.size}
+        ></TextInput>
+      </View>
+      <View style={styles.container2}>
+        <Text>Notes</Text>
+        <TextInput
+          style={styles.input}
+          editable={false}
+          value={data.addtional}
+        ></TextInput>
+      </View>
+
       <View style={styles.container6}>
-        <Dark_Button
-          onPress={() =>
-            props.navigation.navigate("PetScreen7", {
-              ...props.route.params,
-              value: toTitleCase(value),
-            })
-          }
-        >
-          <Text> Next</Text>
+        <Dark_Button onPress={() => props.navigation.navigate("PetScreen9")}>
+          <Text> Submit</Text>
         </Dark_Button>
       </View>
     </View>
@@ -89,12 +116,12 @@ const styles = StyleSheet.create({
     padding: '1.8%',
   },
   container1: {
-    flex: 0.6,
+    flex: 1,
     width: "100%",
     // backgroundColor: "#C6C438",
   },
   container2: {
-    flex: 0.6,
+    flex: 1.5,
     width: "100%",
     // backgroundColor: "#A596D3",
   },
@@ -121,12 +148,12 @@ const styles = StyleSheet.create({
     // backgroundColor: "#86EC4F",
   },
   container6: {
-    flex: 1.6,
+    flex: 1.5,
     width: "100%",
-    backgroundColor: "#9811C9",
+    // backgroundColor: "#9811C9",
     justifyContent: "center",
     paddingHorizontal: "2%",
-    paddingTop: "5%",
+    // paddingTop: "5%",
     paddingLeft: "60%",
   },
   head: {
@@ -158,6 +185,14 @@ const styles = StyleSheet.create({
     color: Colors.primary3,
   },
   input: {
+    paddingHorizontal: "5%",
+    fontSize: 20,
+    color: Colors.secondary3,
+    borderBottomColor: "black",
+    borderBottomWidth: 1,
+  },
+  input: {
+    // paddingHorizontal: "5%",
     fontSize: 20,
     color: Colors.secondary3,
     borderBottomColor: "black",
@@ -165,4 +200,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Pet_screen6;
+export default Pet_screen9;

@@ -17,8 +17,9 @@ import Colors from '../../Items/Colors';
 const HandyWork_Screen4 = props => {
 
   const navigation = useNavigation();
-  const placeholer = "Enter here";
-  const [value, onChangeText] = useState(placeholer);
+  const [value, onChangeText] = useState();
+
+  console.log(props);
 
     return(
       <SafeAreaView style={{ ...styles.screen, ...props.style}}>
@@ -54,20 +55,21 @@ const HandyWork_Screen4 = props => {
         <Text style={styles.head3}> </Text>
       </View>
       <View style={styles.container5}>
+
       <TextInput
-      style={styles.input}
-      onChangeText={(text) => onChangeText(text)}
-      value={value}
-          onFocus={() => {
-            if (value === "Enter here") {
-              onChangeText("");
-            }
-          }}
-      />
+          style={styles.input}
+          onChangeText={(text) => onChangeText(text)}
+          value={value}
+          placeholder= {'Enter Text'}
+         
+        />
       </View>
       <View style={styles.container6}>
-        <Dark_Button onPress={() => props.navigation.navigate('handyWorkScreen5')} >
-          <Text> Next</Text>
+        <Dark_Button onPress={() => props.navigation.navigate('handyWorkScreen5', {
+           ...props.route.params,
+           note: value
+        })} >
+          <Text style={{fontSize: 18}}> Next</Text>
         </Dark_Button>
       </View>
     </SafeAreaView>
@@ -131,10 +133,11 @@ const styles = StyleSheet.create({
   container6: {
     flex: 1.2,
     width: "100%",
-    // backgroundColor: "#9811C9",
+    flexDirection: 'column',
+    justifyContent: 'center',
     paddingHorizontal: "2%",
-    paddingTop: "5%",
     paddingLeft: '55%',
+    // backgroundColor: "#9811C9",
   },
   back:{
     alignSelf: "flex-start",

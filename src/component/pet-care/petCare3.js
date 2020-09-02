@@ -1,12 +1,14 @@
 import React from "react";
 import { StyleSheet, View, Text, Image, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import { Feather } from "@expo/vector-icons";
 
 import Dark_Button from "../../Items/Buttons/dark-bt";
 import Colors from "../../Items/Colors";
 
 const Pet_screen3 = (props) => {
   const navigation = useNavigation();
+  console.log(props.route.params);
 
   return (
     <View style={{ ...styles.screen, ...props.style }}>
@@ -16,7 +18,10 @@ const Pet_screen3 = (props) => {
             navigation.goBack();
           }}
         >
-          <Text style={styles.back}>Back</Text>
+          <Text style={styles.back}>
+            <Feather name="chevron-left" size={15} color={Colors.primary3} />
+            Back
+          </Text>
         </TouchableOpacity>
       </View>
       <View style={styles.container1}>
@@ -39,14 +44,20 @@ const Pet_screen3 = (props) => {
         />
       </View>
       <View style={styles.container4}>
-        <Text style={styles.head2}> Your chosen date</Text>
+        <Text style={styles.head2}> {props.route.params.date}</Text>
       </View>
       <View style={styles.container5}>
         <Text style={styles.head2}> What time do you request?</Text>
       </View>
       <View style={styles.container6}></View>
       <View style={styles.container7}>
-        <Dark_Button onPress={() => props.navigation.navigate("PetScreen4")}>
+        <Dark_Button
+          onPress={() =>
+            props.navigation.navigate("PetScreen4", {
+              ...props.route.params,
+            })
+          }
+        >
           <Text> Next</Text>
         </Dark_Button>
       </View>
@@ -60,12 +71,13 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
-    margin: "1.8%",
+    paddingTop: "7%",
+    padding: '1.8%',
   },
   container1: {
     flex: 0.6,
     width: "100%",
-    //backgroundColor: "#C6C438",
+    // backgroundColor: "#C6C438",
   },
   container2: {
     flex: 0.6,
@@ -104,14 +116,13 @@ const styles = StyleSheet.create({
     //backgroundColor: "#86EC4F",
   },
   container7: {
-    justifyContent: "center",
     flex: 1.6,
     width: "100%",
-    //backgroundColor: "#9811C9",
+    flexDirection: "column",
+    justifyContent: "center",
     paddingHorizontal: "2%",
-    paddingTop: "5%",
-
     paddingLeft: "60%",
+    // backgroundColor: "#9811C9",
   },
   head: {
     fontSize: 26,
@@ -129,7 +140,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
   top: {
-    flex: 0.85,
+    flex: 0.6,
     width: "100%",
     flexDirection: "column",
     justifyContent: "center",

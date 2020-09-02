@@ -2,13 +2,18 @@ import React from "react";
 import { StyleSheet, View, Text, Image, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { RadioButton } from "react-native-paper";
+import { Feather } from "@expo/vector-icons";
 
 import Dark_Button from "../../Items/Buttons/dark-bt";
 import Colors from "../../Items/Colors";
 
 const Pet_screen7 = (props) => {
-  const [value, setValue] = React.useState("medium");
   const navigation = useNavigation();
+  const { petName } = props.route.params;
+  const toTitleCase = (str) => str[0].toUpperCase() + str.slice(1);
+
+  const [value, setValue] = React.useState("medium");
+  const alter = "your pet";
 
   return (
     <View style={{ ...styles.screen, ...props.style }}>
@@ -18,7 +23,10 @@ const Pet_screen7 = (props) => {
             navigation.goBack();
           }}
         >
-          <Text style={styles.back}>Back</Text>
+          <Text style={styles.back}>
+            <Feather name="chevron-left" size={15} color={Colors.primary3} />
+            Back
+          </Text>
         </TouchableOpacity>
       </View>
       <View style={styles.container1}>
@@ -41,7 +49,10 @@ const Pet_screen7 = (props) => {
         />
       </View>
       <View style={styles.container4}>
-        <Text style={styles.head2}> What size is petsname.title? </Text>
+        <Text style={styles.head2}>
+          {" "}
+          What size is {petName !== "" ? petName : alter}?{" "}
+        </Text>
       </View>
       <View style={styles.container5}>
         <RadioButton.Group
@@ -63,7 +74,14 @@ const Pet_screen7 = (props) => {
         </RadioButton.Group>
       </View>
       <View style={styles.container6}>
-        <Dark_Button onPress={() => props.navigation.navigate("PetScreen8")}>
+        <Dark_Button
+          onPress={() =>
+            props.navigation.navigate("PetScreen8", {
+              ...props.route.params,
+              size: toTitleCase(value),
+            })
+          }
+        >
           <Text> Next</Text>
         </Dark_Button>
       </View>
@@ -77,7 +95,8 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
-    margin: "1.8%",
+    paddingTop: "7%",
+    padding: '1.8%',
   },
   container1: {
     flex: 0.6,
@@ -148,7 +167,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   top: {
-    flex: 0.85,
+    flex: 0.7,
     width: "100%",
     flexDirection: "column",
     justifyContent: "center",

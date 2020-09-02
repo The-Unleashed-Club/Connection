@@ -8,14 +8,16 @@ import {
   TextInput,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import { Feather } from "@expo/vector-icons";
 
 import Dark_Button from "../../Items/Buttons/dark-bt";
 import Colors from "../../Items/Colors";
 
-const Pet_screen6 = (props) => {
+const Pet_screen8 = (props) => {
   const navigation = useNavigation();
   const placeholer = "Enter here";
   const [value, onChangeText] = useState(placeholer);
+  const toTitleCase = (str) => str[0].toUpperCase() + str.slice(1);
 
   return (
     <View style={{ ...styles.screen, ...props.style }}>
@@ -25,7 +27,10 @@ const Pet_screen6 = (props) => {
             navigation.goBack();
           }}
         >
-          <Text style={styles.back}>Back</Text>
+          <Text style={styles.back}>
+            <Feather name="chevron-left" size={15} color={Colors.primary3} />
+            Back
+          </Text>
         </TouchableOpacity>
       </View>
       <View style={styles.container1}>
@@ -63,7 +68,14 @@ const Pet_screen6 = (props) => {
         />
       </View>
       <View style={styles.container6}>
-        <Dark_Button onPress={() => props.navigation.navigate("PetScreen7")}>
+        <Dark_Button
+          onPress={() =>
+            props.navigation.navigate("PetScreen9", {
+              ...props.route.params,
+              addtional: toTitleCase(value),
+            })
+          }
+        >
           <Text> Next</Text>
         </Dark_Button>
       </View>
@@ -77,7 +89,8 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
-    margin: "1.8%",
+    paddingTop: "7%",
+    padding: '1.8%',
   },
   container1: {
     flex: 0.6,
@@ -136,7 +149,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
   top: {
-    flex: 0.85,
+    flex: 0.6,
     width: "100%",
     flexDirection: "column",
     justifyContent: "center",
@@ -157,4 +170,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Pet_screen6;
+export default Pet_screen8;
