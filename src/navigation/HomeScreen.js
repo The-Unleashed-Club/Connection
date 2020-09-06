@@ -11,6 +11,7 @@ import Volunteer from "../component/Volunteer";
 import Victim from "../component/Help-need";
 
 import Social_Screen from "../component/socialise/socialise-screen";
+import Social_Screen2 from "../component/socialise/socialise-screen2";
 
 
 import Pet_Screen from "../component/pet-care/pet";
@@ -31,10 +32,16 @@ import HandyWork_Screen5 from "../component/handywork-screen/handywork-screen5";
 
 import Transport_screen from "../component/transportation/transportation";
 import Transport_screen2 from "../component/transportation/transportation2";
+import Transport_screen3 from "../component/transportation/transportation3";
+import Transport_screen4 from "../component/transportation/transportation4";
+import Transport_screen5 from "../component/transportation/transportation5";
+import Transport_screen6 from "../component/transportation/transportation6";
 
 import Chat_Screen from "../servises/chat/chat";
 import Browsing_Screen from "../servises/browsing-requests/browsing-screen";
 import ProfileScreen from "../component/profile/profile";
+
+
 
 const ScreenConstant = createStackNavigator();
 
@@ -44,7 +51,8 @@ function SocialScreen() {
       screenOptions={{
         headerShown: false,}}>
       <ScreenConstant.Screen name="socialscreen1" component={Social_Screen} />
-      
+      <ScreenConstant.Screen name="socialscreen2" component={Social_Screen2} />
+
     </ScreenConstant.Navigator>
   );
 }
@@ -127,6 +135,22 @@ function TransportScreen() {
         name="transport_screen2"
         component={Transport_screen2}
       />
+      <ScreenConstant.Screen
+      name="Transport_screen3"
+      component={Transport_screen3}
+      />
+      <ScreenConstant.Screen
+      name="Transport_screen4"
+      component={Transport_screen4}
+      />
+      <ScreenConstant.Screen
+      name="Transport_screen5"
+      component={Transport_screen5 }
+      />
+      <ScreenConstant.Screen
+      name="Transport_screen6"
+      component={Transport_screen6 }
+      />
     </ScreenConstant.Navigator>
   );
 }
@@ -184,7 +208,7 @@ function HomeScreen() {
           component={Chat_Screen}
         />
 
-        <ScreenConstant.Screen 
+        <ScreenConstant.Screen
           name="browse"
           options={{
             cardStyleInterpolator:

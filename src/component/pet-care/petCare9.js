@@ -33,11 +33,11 @@ const Pet_screen9 = (props) => {
         </TouchableOpacity>
       </View>
       <View style={styles.container1}>
-        <Text style={styles.head}> Review your request </Text>
+        <Text style={styles.head}>Review your request </Text>
       </View>
 
       <View style={styles.container2}>
-        <Text>Type of Pet Care</Text>
+        <Text style={styles.head2}>Type of Pet Care</Text>
         <TextInput
           style={styles.input}
           editable={false}
@@ -45,7 +45,7 @@ const Pet_screen9 = (props) => {
         ></TextInput>
       </View>
       <View style={styles.container2}>
-        <Text>Date</Text>
+        <Text style={styles.head2}>Date</Text>
         <TextInput
           style={styles.input}
           editable={false}
@@ -53,11 +53,11 @@ const Pet_screen9 = (props) => {
         ></TextInput>
       </View>
       <View style={styles.container2}>
-        <Text>Time</Text>
+        <Text style={styles.head2}>Time</Text>
         <TextInput style={styles.input} editable={false} value={""}></TextInput>
       </View>
       <View style={styles.container2}>
-        <Text>Location for pet sitting</Text>
+        <Text style={styles.head2}>Location for pet sitting</Text>
         <TextInput
           style={styles.input}
           editable={false}
@@ -65,7 +65,7 @@ const Pet_screen9 = (props) => {
         ></TextInput>
       </View>
       <View style={styles.container2}>
-        <Text>Type of pet</Text>
+        <Text style={styles.head2}>Type of pet</Text>
         <TextInput
           style={styles.input}
           editable={false}
@@ -73,7 +73,7 @@ const Pet_screen9 = (props) => {
         ></TextInput>
       </View>
       <View style={styles.container2}>
-        <Text>Pet's name</Text>
+        <Text style={styles.head2}>Pet's name</Text>
         <TextInput
           style={styles.input}
           editable={false}
@@ -81,7 +81,7 @@ const Pet_screen9 = (props) => {
         ></TextInput>
       </View>
       <View style={styles.container2}>
-        <Text>Pet size</Text>
+        <Text style={styles.head2}>Pet size</Text>
         <TextInput
           style={styles.input}
           editable={false}
@@ -89,7 +89,7 @@ const Pet_screen9 = (props) => {
         ></TextInput>
       </View>
       <View style={styles.container2}>
-        <Text>Notes</Text>
+        <Text style={styles.head2}>Notes</Text>
         <TextInput
           style={styles.input}
           editable={false}
@@ -113,7 +113,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     paddingTop: "7%",
-    padding: '1.8%',
+    padding: "1.8%",
   },
   container1: {
     flex: 1,
@@ -125,36 +125,14 @@ const styles = StyleSheet.create({
     width: "100%",
     // backgroundColor: "#A596D3",
   },
-  container3: {
-    flex: 1.8,
-    flexDirection: "column",
-    width: "100%",
-    paddingHorizontal: "2%",
-    // backgroundColor: "#C6C438",
-  },
-  container4: {
-    flex: 1.5,
-    width: "100%",
-    flexDirection: "column",
-    justifyContent: "center",
-    // backgroundColor: "#267DA5",
-  },
-  container5: {
-    flex: 3,
-    width: "100%",
-    flexDirection: "column",
-    justifyContent: "flex-start",
-    alignSelf: "center",
-    // backgroundColor: "#86EC4F",
-  },
   container6: {
     flex: 1.5,
     width: "100%",
-    // backgroundColor: "#9811C9",
     justifyContent: "center",
     paddingHorizontal: "2%",
     // paddingTop: "5%",
     paddingLeft: "60%",
+    // backgroundColor: "#9811C9",
   },
   head: {
     fontSize: 26,
@@ -163,11 +141,12 @@ const styles = StyleSheet.create({
   },
   head2: {
     alignSelf: "flex-start",
-    fontSize: 19,
-    color: Colors.primary2,
+    fontSize: 14,
+    fontWeight: "bold",
+    color: "#000",
   },
   head3: {
-    fontSize: 17.5,
+    fontSize: 15,
     alignSelf: "center",
     fontWeight: "bold",
   },
