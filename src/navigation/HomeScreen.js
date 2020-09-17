@@ -12,6 +12,13 @@ import Victim from "../component/Help-need";
 
 import Social_Screen from "../component/socialise/socialise-screen";
 import Social_Screen2 from "../component/socialise/socialise-screen2";
+import Social_Screen1A from "../component/socialise/socialise-screen1A";
+import Social_Screen2A from "../component/socialise/socialise-screen2A";
+import Social_Screen1B from "../component/socialise/socialise-screen1B";
+import Social_Screen2B from "../component/socialise/socialise-screen2B";
+import Social_Screen3B from "../component/socialise/socialise-screen3B";
+import Social_Screen4B from "../component/socialise/socialise-screen4B";
+import Social_Screen5B from "../component/socialise/socialise-screen5B";
 
 
 import Pet_Screen from "../component/pet-care/pet";
@@ -35,7 +42,7 @@ import Transport_screen2 from "../component/transportation/transportation2";
 import Transport_screen3 from "../component/transportation/transportation3";
 import Transport_screen4 from "../component/transportation/transportation4";
 import Transport_screen5 from "../component/transportation/transportation5";
-import Transport_screen6 from "../component/transportation/transportation6";
+
 
 import Chat_Screen from "../servises/chat/chat";
 import Browsing_Screen from "../servises/browsing-requests/browsing-screen";
@@ -49,9 +56,21 @@ function SocialScreen() {
   return (
     <ScreenConstant.Navigator
       screenOptions={{
-        headerShown: false,}}>
+        headerShown: false,
+        gestureEnabled: true,
+        gestureDirection: "horizontal",
+        cardOverlayEnabled: true,
+        ...TransitionPresets.SlideFromRightIOS,
+      }}>
       <ScreenConstant.Screen name="socialscreen1" component={Social_Screen} />
       <ScreenConstant.Screen name="socialscreen2" component={Social_Screen2} />
+      <ScreenConstant.Screen name="socialscreen1A" component={Social_Screen1A} />
+      <ScreenConstant.Screen name="socialscreen2A" component={Social_Screen2A} />
+      <ScreenConstant.Screen name="socialscreen1B" component={Social_Screen1B} />
+      <ScreenConstant.Screen name="socialscreen2B" component={Social_Screen2B} />
+      <ScreenConstant.Screen name="socialscreen3B" component={Social_Screen3B} />
+      <ScreenConstant.Screen name="socialscreen4B" component={Social_Screen4B} />
+      <ScreenConstant.Screen name="socialscreen5B" component={Social_Screen5B} />
 
     </ScreenConstant.Navigator>
   );
@@ -136,21 +155,18 @@ function TransportScreen() {
         component={Transport_screen2}
       />
       <ScreenConstant.Screen
-      name="Transport_screen3"
-      component={Transport_screen3}
+        name="Transport_screen3"
+        component={Transport_screen3}
       />
       <ScreenConstant.Screen
-      name="Transport_screen4"
-      component={Transport_screen4}
+        name="Transport_screen4"
+        component={Transport_screen4}
       />
       <ScreenConstant.Screen
-      name="Transport_screen5"
-      component={Transport_screen5 }
+        name="Transport_screen5"
+        component={Transport_screen5}
       />
-      <ScreenConstant.Screen
-      name="Transport_screen6"
-      component={Transport_screen6 }
-      />
+
     </ScreenConstant.Navigator>
   );
 }
@@ -215,13 +231,13 @@ function HomeScreen() {
               CardStyleInterpolators.forModalPresentationIOS,
           }}
           component={Browsing_Screen}
-         />
+        />
 
         <ScreenConstant.Screen
           name="profile"
           options={{
             cardStyleInterpolator:
-            CardStyleInterpolators.forModalPresentationIOS,
+              CardStyleInterpolators.forModalPresentationIOS,
           }}
           component={ProfileScreen}
         />

@@ -1,24 +1,22 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   StyleSheet,
   View,
   Text,
   TextInput,
-  Dimensions,
+  SafeAreaView,
   StatusBar,
+  Dimensions,
 } from "react-native";
-import { useNavigation } from "@react-navigation/native";
-import { useKeyboard } from "react-native-keyboard-height";
-
+import Top_container from "./socialise-head";
 import Dark_Button from "../../Items/Buttons/dark-bt";
 import Colors from "../../Items/Colors";
-import Top_container from "./head";
+import { useKeyboard } from "react-native-keyboard-height";
 
 const screenHeight = Dimensions.get("window").height;
 
-const Pet_screen6 = (props) => {
-  const navigation = useNavigation();
-  const [value, onChangeText] = useState("");
+const Social_Screen3B = (props) => {
+  const [value, onChangeText] = useState();
 
   // for dynamic flex
   const [topFlex, setTopFlex] = useState(5);
@@ -60,17 +58,16 @@ const Pet_screen6 = (props) => {
   useEffect(() => {}, [keyboardHeigth]);
 
   return (
-    <View style={{ ...styles.screen, ...props.style }}>
+    <SafeAreaView style={{ ...styles.screen, ...props.style }}>
       <View style={topstyling(topFlex)}>
         <Top_container
-          title="Pet Care"
-          sub_head="Sitting"
-          detail_2="What is your pet's name?"
+          title="Socialise"
+          sub_head="Coffee meetup"
+          detail_2="Where would you like to meet?"
         />
       </View>
       <View style={midstyling(midFlex)}>
         <TextInput
-          autoCapitalize="sentences"
           autoFocus={true}
           style={styles.input}
           onChangeText={(text) => onChangeText(text)}
@@ -81,16 +78,16 @@ const Pet_screen6 = (props) => {
       <View style={bottomstyling(bottomFlex)}>
         <Dark_Button
           onPress={() =>
-            props.navigation.navigate("PetScreen7", {
+            props.navigation.navigate("socialscreen4B", {
               ...props.route.params,
-              petName: value,
+              Location: value,
             })
           }
         >
-          <Text> Next</Text>
+          <Text style={{ fontSize: 18 }}> Next</Text>
         </Dark_Button>
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 
@@ -125,8 +122,35 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
-    paddingTop: "7%",
     padding: "1.8%",
+    backgroundColor: "#ffffff",
+    paddingTop: "7%",
+  },
+  top_box: {
+    flex: 5,
+    width: "100%",
+    flexDirection: "column",
+    justifyContent: "center",
+    backgroundColor: "rgb(25,5,120)",
+  },
+  mid_box: {
+    flex: 4,
+    width: "100%",
+    flexDirection: "column",
+    justifyContent: "flex-start",
+    alignSelf: "center",
+    paddingTop: "20%",
+    paddingHorizontal: "1%",
+    // backgroundColor: "#86EC4F",
+  },
+  bottom_box: {
+    flex: 1,
+    width: "100%",
+    flexDirection: "column",
+    justifyContent: "center",
+    paddingHorizontal: "2%",
+    paddingLeft: "55%",
+    // backgroundColor: "#9811C9",
   },
   input: {
     fontSize: 20,
@@ -136,4 +160,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Pet_screen6;
+export default Social_Screen3B;
