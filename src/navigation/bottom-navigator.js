@@ -58,10 +58,10 @@ export default function MyTabs() {
       inactiveColor="#BDBDBD"
       barStyle = {{ paddingVertical : '4%', backgroundColor: '#E5E5E5' 
       }}>
-      <Tab.Screen options={{tabBarIcon: () => {return <Home1/>} }} name="Home" component={Volunteer} />
-      <Tab.Screen options={{tabBarIcon:  () => {return <Map1/>} }}  name="browse" component={Browsing_Screen} />
-      <Tab.Screen options={{tabBarIcon:  () => {return <Chat1/>}, tabBarBadge:'2'}} name="Settings" component={Chat_Screen} />
-      <Tab.Screen options={{tabBarIcon:  () => {return <User1/>} }} name="profile" component={Profile_component} />
+      <Tab.Screen options={{tabBarIcon: 'home'}} name="Home" component={Volunteer} />
+      <Tab.Screen options={{tabBarIcon:  'map'}}  name="browse" component={Browsing_Screen} />
+      <Tab.Screen options={{tabBarIcon: 'chat' }} name="Settings" component={Chat_Screen} />
+      <Tab.Screen options={{tabBarIcon:  'profile' }} name="profile" component={Profile_component} />
     </Tab.Navigator>
   );
 };
